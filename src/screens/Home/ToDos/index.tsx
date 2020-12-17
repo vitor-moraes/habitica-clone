@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 // import { Container } from './styles';
 
-const ToDos: React.FC = () => {
-  return <View />;
+const ToDos = () => {
+  return <View><Text>To do's</Text></View>;
 }
 
 export default ToDos;

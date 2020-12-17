@@ -12,7 +12,7 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Routes  />
+        <Routes />
         <StatusBar />
       </SafeAreaProvider>
     );

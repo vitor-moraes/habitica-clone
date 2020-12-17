@@ -4,13 +4,14 @@ import * as React from 'react';
 
 import NotFound from '../screens/NotFound';
 import BottomTab from './BottomTab'
+import Drawer from "./Drawer"
 
 const Stack = createStackNavigator();
 
 function RootNavigator() {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="Root" component={BottomTab} />
+        <Stack.Screen name="Root" component={Drawer} options={{headerShown: false}} />
         <Stack.Screen name="NotFound" component={NotFound} options={{ title: 'Oops!' }} />
       </Stack.Navigator>
     );

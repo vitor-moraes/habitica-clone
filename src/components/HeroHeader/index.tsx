@@ -54,7 +54,7 @@ const HeroHeader = (props) => {
           <Ionicons name={"filter-sharp"} size={20} color={"#1b1b1b"} />
         </IconContainer>
       </UpperBox>
-      <LowerBox>
+      {/* <LowerBox>
         <LowerBoxRow>
           <AvatarBox>
             <Text>AvatarBox</Text>
@@ -71,7 +71,7 @@ const HeroHeader = (props) => {
             <Text>MoneyBox</Text>
           </MoneyBox>
         </BottomBox>
-      </LowerBox>
+      </LowerBox> */}
     </Container>
   );
 };

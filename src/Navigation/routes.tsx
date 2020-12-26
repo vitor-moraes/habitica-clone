@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
 import NotFound from '../screens/NotFound';
-import BottomTab from './BottomTab'
 import Drawer from "./Drawer"
 
 const Stack = createStackNavigator();

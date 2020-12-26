@@ -1,9 +1,8 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  background-color: #e4e4e4;
+  /* background-color: #e4e4e4; */
   margin-top: 25px;
-  height: 173px;
   justify-content: center;
   align-items: center;
 `;
@@ -17,8 +16,11 @@ export const UpperBox = styled.View`
 `;
 
 export const LowerBox = styled.View`
+  background-color: #5f5f5f;
   justify-content: center;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 130px;
   width: 100%;
 `;
@@ -29,6 +31,7 @@ export const LowerBoxRow = styled.View`
 `;
 
 export const AvatarBox = styled.View`
+  background-color: #d4d4d4;
   justify-content: center;
   align-items: center;
   width: 35%;
@@ -36,6 +39,7 @@ export const AvatarBox = styled.View`
 `;
 
 export const BarsBox = styled.View`
+  background-color: #bebebe;
   justify-content: center;
   align-items: center;
   width: 65%;
@@ -51,15 +55,19 @@ export const BottomBox = styled.View`
 `;
 
 export const ClassBox = styled.View`
+  background-color: #a1a1a1;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 10px;
   width: 60%;
   height: 100%;
 `;
 
 export const MoneyBox = styled.View`
+  background-color: #949494;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 10px;
   width: 40%;
   height: 100%;
 `;

@@ -3,7 +3,9 @@ import { Dimensions, PixelRatio } from "react-native";
 const { width, height } = Dimensions.get("window");
 const screenHeight = Math.round(PixelRatio.roundToNearestPixel(height));
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  padding-bottom: 10px;
+`;
 
 export const NullContainer = styled.View`
   flex: 1;

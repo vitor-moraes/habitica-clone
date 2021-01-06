@@ -32,7 +32,9 @@ const Habits = () => {
         setRefrashing(false);
         setLoading(false);
       }, 2000);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const testData = [

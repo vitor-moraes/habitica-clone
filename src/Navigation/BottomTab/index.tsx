@@ -19,7 +19,7 @@ import Dailies from "../../screens/Home/Dailies";
 import ToDos from "../../screens/Home/ToDos";
 import Rewards from "../../screens/Home/Rewards";
 
-import HeroHeader from "../../components/HeroHeader";
+import HomeHeader from "../../components/HomeHeader";
 
 const BottomTab = createMaterialTopTabNavigator();
 const TabStack = createStackNavigator();
@@ -129,7 +129,7 @@ const BottomTabStack = () => {
         header: (props) => {
           return (
             <>
-              <HeroHeader {...props} />
+              <HomeHeader {...props} />
             </>
           );
         },

@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, ActivityIndicator, Alert } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  Alert,
+  Animated,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { PanGestureHandler, State } from "react-native-gesture-handler";
 
 import {
   Container,
+  FlatListContainer,
   NullContainer,
   NullBox,
   NullIconBox,
@@ -20,10 +29,26 @@ import {
   CardsNotes,
 } from "./styles";
 
+import HeroHeader from "../../../components/HeroHeader";
+
 const Habits = () => {
   const [loading, setLoading] = useState(true);
   const [habitsData, setHabitsData] = useState(null);
   const [refrashing, setRefrashing] = useState(true);
+  const translateY = new Animated.Value(0);
+  const translateX = new Animated.Value(0);
+  const animatedEvent = Animated.event(
+    [
+      {
+        nativeEvent: {
+          translationY: translateY,
+          translationX: translateX,
+        },
+      },
+    ],
+    { useNativeDriver: true }
+  );
+  let offset = 0;
 
   const getHabitsData = () => {
     try {
@@ -165,17 +190,77 @@ const Habits = () => {
     );
   };
 
+  const onHandlerStateChange = (event) => {
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      let opened = false;
+      const { translationY, translationX } = event.nativeEvent;
+      offset += translationY;
+
+      if (translationY > 70) {
+        opened = true;
+      } else {
+        translateY.setValue(offset);
+        translateY.setOffset(0);
+        offset = 0;
+      }
+
+      Animated.timing(translateY, {
+        toValue: opened ? 200 : 0,
+        duration: 200,
+        useNativeDriver: true,
+      }).start(() => {
+        offset = opened ? 200 : 0;
+        translateY.setOffset(offset);
+        translateY.setValue(0);
+      });
+
+      console.log(
+        "X:",
+        translationX,
+        "(",
+        translateX,
+        ")",
+        "Y:",
+        translationY,
+        "(",
+        translateY,
+        ")"
+      );
+    }
+  };
+
   return (
     <>
       {habitsData !== null && loading === false ? (
         <Container>
-          <FlatList
-            data={habitsData}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
-            refreshing={refrashing}
-            onRefresh={() => handleRefrash()}
-          />
+          <HeroHeader translateY={translateY} />
+          <PanGestureHandler
+            enabled={false} // Change to true to show the hero header
+            onGestureEvent={animatedEvent}
+            onHandlerStateChange={onHandlerStateChange}
+          >
+            <FlatListContainer
+              style={{
+                transform: [
+                  {
+                    translateY: translateY.interpolate({
+                      inputRange: [0, 200],
+                      outputRange: [-130, 0],
+                      extrapolate: "clamp",
+                    }),
+                  },
+                ],
+              }}
+            >
+              <FlatList
+                data={habitsData}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id.toString()}
+                refreshing={refrashing}
+                onRefresh={() => handleRefrash()}
+              />
+            </FlatListContainer>
+          </PanGestureHandler>
         </Container>
       ) : (
         <>

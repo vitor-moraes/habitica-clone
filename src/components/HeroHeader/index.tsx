@@ -1,60 +1,35 @@
 import React from "react";
-import { View, Text, Alert } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Text } from "react-native";
 import {
   Container,
-  UpperBox,
-  LowerBox,
   LowerBoxRow,
   AvatarBox,
   BarsBox,
   BottomBox,
   ClassBox,
   MoneyBox,
-  DrawerBtn,
-  NameContainer,
-  UserName,
-  IconContainer,
 } from "./styles";
 
-const HeroHeader = (props) => {
+const HeroHeader = ({ translateY }) => {
   return (
-    <Container>
-      <UpperBox>
-        <DrawerBtn
-          onPress={() => {
-            props.navigation.openDrawer();
-          }}
-        >
-          <Ionicons name={"menu"} size={20} color={"#1b1b1b"} />
-        </DrawerBtn>
-        <NameContainer>
-          <UserName>Nome do usuário</UserName>
-        </NameContainer>
-        <IconContainer
-          onPress={() =>
-            Alert.alert(
-              "Quase lá!",
-              "Aqui será adicionado o botão principal de busca dos elementos",
-              [{ text: "Certo" }]
-            )
-          }
-        >
-          <Ionicons name={"search-sharp"} size={20} color={"#1b1b1b"} />
-        </IconContainer>
-        <IconContainer
-          onPress={() =>
-            Alert.alert(
-              "Quase lá!",
-              "Aqui será adicionado o botão principal de filtro dos elementos",
-              [{ text: "Certo" }]
-            )
-          }
-        >
-          <Ionicons name={"filter-sharp"} size={20} color={"#1b1b1b"} />
-        </IconContainer>
-      </UpperBox>
-      <LowerBox>
+    <>
+      <Container
+        style={{
+          transform: [
+            {
+              translateY: translateY.interpolate({
+                inputRange: [-200, 0, 200],
+                outputRange: [-30, 10, 0],
+                extrapolate: "clamp",
+              }),
+            },
+          ],
+          opacity: translateY.interpolate({
+            inputRange: [0, 150],
+            outputRange: [0, 1],
+          }),
+        }}
+      >
         <LowerBoxRow>
           <AvatarBox>
             <Text>AvatarBox</Text>
@@ -71,8 +46,8 @@ const HeroHeader = (props) => {
             <Text>MoneyBox</Text>
           </MoneyBox>
         </BottomBox>
-      </LowerBox>
-    </Container>
+      </Container>
+    </>
   );
 };
 

@@ -1,8 +1,22 @@
 import styled from "styled-components/native";
-import { Dimensions, PixelRatio, Animated } from "react-native";
 
-export const Container = styled(Animated.View)`
-  background-color: #ffffff;
+export const Container = styled.View`
+  /* background-color: #e4e4e4; */
+  margin-top: 25px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const UpperBox = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+`;
+
+export const LowerBox = styled.View`
+  background-color: #5f5f5f;
   justify-content: center;
   align-items: center;
   padding-left: 10px;
@@ -56,4 +70,32 @@ export const MoneyBox = styled.View`
   padding-right: 10px;
   width: 40%;
   height: 100%;
+`;
+
+export const DrawerBtn = styled.TouchableOpacity`
+  padding: 5px;
+  width: 10%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NameContainer = styled.View`
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10px;
+  height: 40px;
+  width: 70%;
+`;
+
+export const UserName = styled.Text`
+  font-weight: bold;
+  font-size: 16px;
+`;
+
+export const IconContainer = styled.TouchableOpacity`
+  width: 10%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
 `;

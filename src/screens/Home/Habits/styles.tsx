@@ -1,10 +1,14 @@
 import styled from "styled-components/native";
-import { Dimensions, PixelRatio } from "react-native";
+import { Dimensions, PixelRatio, Animated } from "react-native";
 const { width, height } = Dimensions.get("window");
 const screenHeight = Math.round(PixelRatio.roundToNearestPixel(height));
 
 export const Container = styled.View`
   padding-bottom: 10px;
+`;
+
+export const FlatListContainer = styled(Animated.View)`
+background-color: #ffffff;
 `;
 
 export const NullContainer = styled.View`

@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
+
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@ export const TabBtn = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   height: 65px;
-  width: 75px;
+  width: 21.1%;
 `;
 
 export const TextBtnFocused = styled.Text`
@@ -55,7 +56,7 @@ export const AddBtnBase = styled.View`
   border-bottom-width: 30px;
   border-top-width: 35px;
   border-left-color: #8400ff;
-  border-right-color:  #8400ff;
-  border-bottom-color:  #8400ff;
+  border-right-color: #8400ff;
+  border-bottom-color: #8400ff;
   border-top-color: transparent;
 `;
